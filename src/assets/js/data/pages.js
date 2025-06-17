@@ -1,5 +1,5 @@
 export default {
     HOME: () => '/',
-    MOVIES: () => '/posts',
-    SHOWMOVIE: (id) => `/posts/${id}`,
+    MOVIES: () => '/movies',
+    SHOWMOVIE: (id) => `/movies/${id}`,
 };

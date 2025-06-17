@@ -1,8 +1,39 @@
+import { useEffect } from "react";
+
+
+
 import { Link } from "react-router-dom";
 import pages from "../../assets/js/data/pages";
 
 
+
+import axios from "axios";
+
+
+
+const apiUrl = import.meta.env.VITE_API_URL + '/movies';
+
+
+
 export default function MoviesIndexPage () {
+
+    const fetchMovies = () => {
+        axios
+            .get(apiUrl)
+            .then(response => {
+                console.info(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+                console.error("error.request", error.request);
+                console.error("error.response", error.response);
+            });
+    };
+
+    useEffect(() => {
+        fetchMovies();
+    }, []);
+
     return (
         <section>
             <div className="container my-5">

@@ -42,7 +42,7 @@ export default function MoviesList () {
             <div className="container my-5">
                 <div className="card shadow">
                     <div className="card-body">
-                        <div className="row g-3">
+                        <div className="row row-cols-5 g-3">
                             <div className="col-12">
                                 <h2 className='text-center'>
                                     MoviesList
@@ -53,7 +53,7 @@ export default function MoviesList () {
                                 movies.length > 0 ?
                                     movies.map(movie => {
                                         return (
-                                            <div key={movie.id} className="col-3">
+                                            <div key={movie.id} className="col">
                                                 {/* <p>
                                                     {movie.title}
                                                 </p> */}

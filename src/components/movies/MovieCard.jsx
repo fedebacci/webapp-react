@@ -3,7 +3,7 @@ import pages from "../../assets/js/data/pages";
 
 export default function MovieCard ({ movie }) {
     return (
-        <div className="card h-100">
+        <div className="card shadow h-100">
             <div className="card-header">
                 <h4>
                     {movie.title}

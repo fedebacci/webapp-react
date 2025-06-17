@@ -40,7 +40,7 @@ export default function MoviesList () {
     return (
         <section>
             <div className="container my-5">
-                <div className="card">
+                <div className="card shadow">
                     <div className="card-body">
                         <div className="row g-3">
                             <div className="col-12">
@@ -64,7 +64,7 @@ export default function MoviesList () {
                                 :
                                 <div className="col-12">
                                     <p>
-                                        Nessun film presente
+                                        No movies available
                                     </p>
                                 </div>
                             }

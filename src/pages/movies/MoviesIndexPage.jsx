@@ -14,9 +14,9 @@ export default function MoviesIndexPage () {
                 <div className="container my-5">
                     <div className="card shadow">
                         <div className="card-body">
-                            <h1 className='text-center'>
+                            <h2 className='text-center'>
                                 MoviesIndexPage
-                            </h1>
+                            </h2>
                             {/* <p>
                                 Link al singolo movie (esempio: movie/1)
                                 <br />

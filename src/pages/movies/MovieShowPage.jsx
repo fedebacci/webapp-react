@@ -40,7 +40,7 @@ export default function MovieShowPage () {
         <>
             <section>
                 <div className="container my-5">
-                    <div className="card">
+                    <div className="card shadow">
                     <div className="card-body">
                         <Link
                             className="btn btn-outline-dark"
@@ -62,18 +62,18 @@ export default function MovieShowPage () {
                             >
                                 Back to movies
                             </Link> */}
-                            <h1 className='text-center'>
+                            <h2 className='text-center'>
                                 {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
                                 {/* MovieShowPage */}
                                 MovieShowPage - {movie?.id}
-                            </h1>
+                            </h2>
 
-                            <div className="movie-info card shadow">
+                            <div className="movie-page-info card shadow">
                                 <div className="card-body">
 
-                                    <h1 className='text-center'>
-                                        movie-info (future component)
-                                    </h1>
+                                    <h2 className='text-center'>
+                                        movie-page-info (future component)
+                                    </h2>
 
                                     {
                                         movie !== undefined ?
@@ -128,19 +128,23 @@ export default function MovieShowPage () {
                                                     <hr />
                                                 </div>
                                                 <div className="col-12">
-                                                    <p>
-                                                        <strong>
-                                                            Created:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.created_at}
+                                                    <p className="text-secondary m-0">
+                                                        <small>
+                                                            <strong>
+                                                                created_at:
+                                                            </strong>
+                                                            {" "}
+                                                            {movie.created_at}
+                                                        </small>
                                                     </p>
-                                                    <p>
-                                                        <strong>
-                                                            Updated:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.updated_at}
+                                                    <p className="text-secondary m-0">
+                                                        <small>
+                                                            <strong>
+                                                                updated_at:
+                                                            </strong>
+                                                            {" "}
+                                                            {movie.updated_at}
+                                                        </small>
                                                     </p>
                                                 </div>
                                             </div>
@@ -155,20 +159,20 @@ export default function MovieShowPage () {
 
 
 
-                            <div className="movie-reviews card shadow mt-3">
+                            <div className="movie-page-reviews card shadow mt-3">
                                 <div className="card-body">
-                                    <h1 className='text-center'>
-                                        movie-reviews (future component)
-                                    </h1>
+                                    <h2 className='text-center'>
+                                        movie-page-reviews (future component)
+                                    </h2>
                                     {
                                         movie !== undefined && movie.reviews.length > 0 ?
                                             movie.reviews.map(review => {
                                                 return (
-                                                    <div key={review.id} className="card shadow my-3">
+                                                    <div key={review.id} className="movie-page-review card shadow my-3">
                                                         <div className="card-body">
-                                                            <h1>
-                                                                review (future component)
-                                                            </h1>
+                                                            <h2 className='text-center'>
+                                                                movie-page-review (future component)
+                                                            </h2>
                                                             <p>
                                                                 <strong>
                                                                     Name:
@@ -191,33 +195,41 @@ export default function MovieShowPage () {
                                                                 {review.text}
                                                             </p>
                                                             <hr />
-                                                            <p>
-                                                                <strong>
-                                                                    Id:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.id}
+                                                            <p className="text-secondary m-0">
+                                                                <small>
+                                                                    <strong>
+                                                                        id:
+                                                                    </strong>
+                                                                    {" "}
+                                                                    {review.id}
+                                                                </small>
                                                             </p>
-                                                            <p>
-                                                                <strong>
-                                                                    Movie id:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.movie_id}
+                                                            <p className="text-secondary m-0">
+                                                                <small>
+                                                                    <strong>
+                                                                        movie_id:
+                                                                    </strong>
+                                                                    {" "}
+                                                                    {review.movie_id}
+                                                                </small>
                                                             </p>
-                                                            <p>
-                                                                <strong>
-                                                                    Created at:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.created_at}
+                                                            <p className="text-secondary m-0">
+                                                                <small>
+                                                                    <strong>
+                                                                        created_at:
+                                                                    </strong>
+                                                                    {" "}
+                                                                    {review.created_at}
+                                                                </small>
                                                             </p>
-                                                            <p>
-                                                                <strong>
-                                                                    Updated at:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.updated_at}
+                                                            <p className="text-secondary m-0">
+                                                                <small>
+                                                                    <strong>
+                                                                        updated_at:
+                                                                    </strong>
+                                                                    {" "}
+                                                                    {review.updated_at}
+                                                                </small>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -228,6 +240,16 @@ export default function MovieShowPage () {
                                             No reviews not found
                                         </p>
                                     }
+                                </div>
+                            </div>
+
+
+
+                            <div className="movie-page-add-review card shadow">
+                                <div className="card-body">
+                                    <h2 className='text-center'>
+                                        movie-page-add-review (future component || form)
+                                    </h2>
                                 </div>
                             </div>
                         </div>

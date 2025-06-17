@@ -44,9 +44,9 @@ export default function MoviesList () {
                     <div className="card-body">
                         <div className="row g-3">
                             <div className="col-12">
-                                <h1 className='text-center'>
-                                    MoviesList.jsx
-                                </h1>
+                                <h2 className='text-center'>
+                                    MoviesList
+                                </h2>
                             </div>
 
                             {

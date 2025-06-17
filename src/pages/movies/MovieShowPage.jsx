@@ -10,6 +10,11 @@ const apiUrl = import.meta.env.VITE_API_URL + '/movies/';
 
 
 
+import MovieInfo from "../../components/movies/MovieInfo";
+import MovieReviewsList from "../../components/movies/MovieReviewsList";
+
+
+
 export default function MovieShowPage () {
 
     const { id } = useParams();
@@ -68,180 +73,32 @@ export default function MovieShowPage () {
                                 MovieShowPage - {movie?.id}
                             </h2>
 
-                            <div className="movie-page-info card shadow">
-                                <div className="card-body">
+                            {
+                                movie !== undefined ?
+                                    <MovieInfo
+                                        movie={movie}
+                                    />
+                                :
+                                    <p>
+                                        Movie not found
+                                    </p>
+                            }
 
-                                    <h2 className='text-center'>
-                                        movie-page-info (future component)
-                                    </h2>
-
-                                    {
-                                        movie !== undefined ?
-                                        <>
-                                            <div className="row g-3">
-                                                <div className="col-4">
-                                                    <img
-                                                        className="img-fluid"
-                                    
-                                                        src={movie.image}
-                                                        alt={movie.title}
-                                                    />
-                                                </div>
-                                                <div className="col-8">
-                                                    <p>
-                                                        <strong>
-                                                            Title:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.title}
-                                                    </p>
-                                                    <p>
-                                                        <strong>
-                                                            Abstract:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.abstract}
-                                                    </p>
-                                                    <p>
-                                                        <strong>
-                                                            Director:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.director}
-                                                    </p>
-                                                    <p>
-                                                        <strong>
-                                                            Genre:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.genre}
-                                                    </p>
-                                                    <p>
-                                                        <strong>
-                                                            Released:
-                                                        </strong>
-                                                        {" "}
-                                                        {movie.release_year}
-                                                    </p>
-                                                </div>
-                                                <div className="col-12">
-                                                    <hr />
-                                                </div>
-                                                <div className="col-12">
-                                                    <p className="text-secondary m-0">
-                                                        <small>
-                                                            <strong>
-                                                                created_at:
-                                                            </strong>
-                                                            {" "}
-                                                            {movie.created_at}
-                                                        </small>
-                                                    </p>
-                                                    <p className="text-secondary m-0">
-                                                        <small>
-                                                            <strong>
-                                                                updated_at:
-                                                            </strong>
-                                                            {" "}
-                                                            {movie.updated_at}
-                                                        </small>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </>
-                                        :
-                                        <p>
-                                            Movie not found
-                                        </p>
-                                    }
-                                </div>
-                            </div>
+                            {
+                                movie !== undefined ?
+                                    <MovieReviewsList
+                                        reviews={movie.reviews}
+                                    />
+                                :
+                                    <p>
+                                        Movie not found
+                                    </p>
+                            }
 
 
 
-                            <div className="movie-page-reviews card shadow mt-3">
-                                <div className="card-body">
-                                    <h2 className='text-center'>
-                                        movie-page-reviews (future component)
-                                    </h2>
-                                    {
-                                        movie !== undefined && movie.reviews.length > 0 ?
-                                            movie.reviews.map(review => {
-                                                return (
-                                                    <div key={review.id} className="movie-page-review card shadow my-3">
-                                                        <div className="card-body">
-                                                            <h2 className='text-center'>
-                                                                movie-page-review (future component)
-                                                            </h2>
-                                                            <p>
-                                                                <strong>
-                                                                    Name:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.name}
-                                                            </p>
-                                                            <p>
-                                                                <strong>
-                                                                    Vote:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.vote}
-                                                            </p>
-                                                            <p>
-                                                                <strong>
-                                                                    Text:
-                                                                </strong>
-                                                                {" "}
-                                                                {review.text}
-                                                            </p>
-                                                            <hr />
-                                                            <p className="text-secondary m-0">
-                                                                <small>
-                                                                    <strong>
-                                                                        id:
-                                                                    </strong>
-                                                                    {" "}
-                                                                    {review.id}
-                                                                </small>
-                                                            </p>
-                                                            <p className="text-secondary m-0">
-                                                                <small>
-                                                                    <strong>
-                                                                        movie_id:
-                                                                    </strong>
-                                                                    {" "}
-                                                                    {review.movie_id}
-                                                                </small>
-                                                            </p>
-                                                            <p className="text-secondary m-0">
-                                                                <small>
-                                                                    <strong>
-                                                                        created_at:
-                                                                    </strong>
-                                                                    {" "}
-                                                                    {review.created_at}
-                                                                </small>
-                                                            </p>
-                                                            <p className="text-secondary m-0">
-                                                                <small>
-                                                                    <strong>
-                                                                        updated_at:
-                                                                    </strong>
-                                                                    {" "}
-                                                                    {review.updated_at}
-                                                                </small>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                )
-                                            })
-                                        :
-                                        <p>
-                                            No reviews not found
-                                        </p>
-                                    }
-                                </div>
-                            </div>
+
+
 
 
 

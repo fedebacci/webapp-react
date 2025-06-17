@@ -63,7 +63,7 @@ export default function MoviesList () {
                                     })
                                 :
                                 <div className="col-12">
-                                    <p>
+                                    <p className="mb-0">
                                         No movies available
                                     </p>
                                 </div>

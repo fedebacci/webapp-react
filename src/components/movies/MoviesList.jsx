@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 import axios from "axios";
-const apiUrl = import.meta.env.VITE_API_URL + '/movies';
+const apiUrl = import.meta.env.VITE_API_URL + '/moviess';
 
 
 
@@ -26,8 +26,8 @@ export default function MoviesList () {
             })
             .catch(error => {
                 console.error(error);
-                console.error("error.request", error.request);
-                console.error("error.response", error.response);
+                // console.error("error.request.responseURL", error.request.responseURL);
+                // console.error("error.response.data.message", error.response.data.message);
             });
     };
 

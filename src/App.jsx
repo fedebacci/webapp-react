@@ -1,13 +1,10 @@
-// # USE STATE EXAMPLE
-// import { useState } from 'react';
-
-
-
-// # ASSETS IMPORT EXAMPLE
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
-// import favicon from '/favicon.jpg';
-
+// # IMPORTS
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import pages from "./assets/js/data/pages";
+import DefaultLayout from "./layouts/DefaultLayout";
+import HomePage from './pages/HomePage';
+import MoviesIndexPage from './pages/movies/MoviesIndexPage';
+import MovieShowPage from './pages/movies/MovieShowPage';
 
 
 function App() {
@@ -16,15 +13,22 @@ function App() {
 
   return (
     <>
-      <div className="container my-5">
-        <div className="card">
-          <div className="card-body">
-            <h1 className='text-center'>
-              {import.meta.env.VITE_APP_NAME}
-              </h1>
-          </div>
-        </div>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          
+          <Route element={<DefaultLayout />}>
+            <Route index element={<HomePage />} />
+
+            <Route path={pages.MOVIES()}>
+              <Route index element={<MoviesIndexPage />} />
+              <Route path={pages.SHOWMOVIE(":id")} element={<MovieShowPage />} />
+            </Route>
+
+            {/* <Route path='*' element={<NotFoundPage />} /> */}
+          </Route>
+
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

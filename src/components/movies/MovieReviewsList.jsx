@@ -4,7 +4,7 @@ import MovieReview from "./MovieReview";
 
 export default function MovieReviewsList ({ reviews }) {
     return (
-        <div className="movie-page-reviews card shadow my-3">
+        <div className="movie-reviews card shadow my-3">
             <div className="card-body">
                 <h2 className='text-center'>
                     MovieReviewsList

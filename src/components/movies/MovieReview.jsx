@@ -1,6 +1,6 @@
 export default function MovieReview ({ review }) {
     return (
-        <div key={review.id} className="movie-page-review card shadow my-3">
+        <div key={review.id} className="movie-review card shadow my-3">
             <div className="card-body">
                 <h2 className='text-center'>
                     MovieReview - {review.id}

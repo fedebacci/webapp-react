@@ -10,7 +10,7 @@ export default function MovieReviewsList ({ reviews }) {
                     MovieReviewsList
                 </h2>
 
-                 {/* key={review.id} */}
+
 
                 {
                     reviews.length > 0 ?

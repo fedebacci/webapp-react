@@ -4,12 +4,13 @@ import pages from "../../assets/js/data/pages";
 export default function MovieCard ({ movie }) {
     return (
         <div className="card shadow h-100">
-            <div className="card-header">
+            <div className="card-header p-0 overflow-hidden">
+                <img className="img-fluid" src={movie.image} alt={movie.title} />
+            </div>
+            <div className="card-body">
                 <h4>
                     {movie.title}
                 </h4>
-            </div>
-            <div className="card-body">
                 <p>
                     {movie.abstract}
                 </p>

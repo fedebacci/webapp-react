@@ -53,7 +53,7 @@ export default function MoviesList () {
                                 movies.length > 0 ?
                                     movies.map(movie => {
                                         return (
-                                            <div key={movie.id} className="col-4">
+                                            <div key={movie.id} className="col-3">
                                                 {/* <p>
                                                     {movie.title}
                                                 </p> */}

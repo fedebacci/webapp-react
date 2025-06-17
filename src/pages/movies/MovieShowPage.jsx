@@ -43,8 +43,13 @@ export default function MovieShowPage () {
 
     return (
         <>
-            <section>
-                <div className="container my-5">
+            {/* # ATTENZIONE */}
+            {/* # Metto stile in linea per attaccare l'elemento in alto, in modo da avere sempre il link a disposizione e risparmiare tempo quando faccio debug */}
+            {/* todo: CANCELLARE LO STILE QUANDO TERMINA IL DEBUG E SI PASSA ALLO STILE O NEL CASO DOVESSE RIMANERE LO STICKY SISTEMARE UNA CLASSE O UN ID CSS */}
+            {/* todo: RIMERRERE CLASSE MY-5 INVECE DI PY-5 AL CONTAINER */}
+            <section style={{position: 'sticky', top: '0', zIndex: '2', backgroundColor: '#FFFFFF', boxShadow: '0 0 5px rgba(0,0,0,0.33)'}}>
+                <div className="container py-5">
+                {/* <div className="container my-5"> */}
                     <div className="card shadow">
                     <div className="card-body">
                         <Link

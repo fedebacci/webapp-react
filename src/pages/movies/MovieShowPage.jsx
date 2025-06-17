@@ -20,8 +20,8 @@ export default function MovieShowPage () {
     const { id } = useParams();
 
 
-    const [movie, setMovie] = useState();
 
+    const [movie, setMovie] = useState();
 
     const fetchMovie = () => {
         axios
@@ -40,6 +40,9 @@ export default function MovieShowPage () {
     useEffect(() => {
         fetchMovie();
     }, []);
+
+
+
 
     return (
         <>
@@ -62,62 +65,148 @@ export default function MovieShowPage () {
                     </div>
                 </div>
             </section>
-            <section>
-                <div className="container my-5">
-                    <div className="card shadow">
-                        <div className="card-body">
-                            {/* <Link
-                                className="btn btn-outline-dark"
-                                to={pages.MOVIES()}
-                            >
-                                Back to movies
-                            </Link> */}
-                            <h2 className='text-center'>
-                                {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
-                                {/* MovieShowPage */}
-                                MovieShowPage - {movie?.id}
-                            </h2>
-
-                            {
-                                movie !== undefined ?
-                                    <MovieInfo
-                                        movie={movie}
-                                    />
-                                :
-                                    <p>
-                                        Movie not found
-                                    </p>
-                            }
-
-                            {
-                                movie !== undefined ?
-                                    <MovieReviewsList
-                                        reviews={movie.reviews}
-                                    />
-                                :
-                                    <p>
-                                        Movie not found
-                                    </p>
-                            }
 
 
 
 
 
+            {
+                movie &&
+                <section>
+                    <div className="container my-5">
+                        <div className="card shadow">
+                            <div className="card-body">
+                                {/* <Link
+                                    className="btn btn-outline-dark"
+                                    to={pages.MOVIES()}
+                                >
+                                    Back to movies
+                                </Link> */}
+                                <h2 className='text-center'>
+                                    {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
+                                    {/* MovieShowPage */}
+                                    MovieShowPage - {movie?.id}
+                                </h2>
+                                <h5 className="text-center">
+                                    (Vuoto se film non presente (&&))
+                                </h5>
 
 
 
-                            <div className="movie-page-add-review card shadow">
-                                <div className="card-body">
-                                    <h2 className='text-center'>
-                                        movie-page-add-review (future component || form)
-                                    </h2>
+                                <MovieInfo
+                                    movie={movie}
+                                />
+
+
+
+                                <MovieReviewsList
+                                    reviews={movie.reviews}
+                                />
+
+
+
+                                <div className="movie-page-add-review card shadow">
+                                    <div className="card-body">
+                                        <h2 className='text-center'>
+                                            movie-page-add-review (future component || form)
+                                        </h2>
+                                    </div>
                                 </div>
+
+
+
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            }
+
+
+
+
+
+            { movie && <hr />}
+
+
+
+
+
+            {
+                movie !== undefined ?
+                <section>
+                    <div className="container my-5">
+                        <div className="card shadow">
+                            <div className="card-body">
+                                {/* <Link
+                                    className="btn btn-outline-dark"
+                                    to={pages.MOVIES()}
+                                >
+                                    Back to movies
+                                </Link> */}
+                                <h2 className='text-center'>
+                                    {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
+                                    {/* MovieShowPage */}
+                                    MovieShowPage - {movie?.id}
+                                </h2>
+                                <h5 className="text-center">
+                                    (Comunque riempito con messaggio se film non presente (? :))
+                                </h5>
+
+
+
+                                <MovieInfo
+                                    movie={movie}
+                                />
+
+
+
+                                <MovieReviewsList
+                                    reviews={movie.reviews}
+                                />
+
+
+
+                                <div className="movie-page-add-review card shadow">
+                                    <div className="card-body">
+                                        <h2 className='text-center'>
+                                            movie-page-add-review (future component || form)
+                                        </h2>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                :
+                <section>
+                    <div className="container my-5">
+                        <div className="card shadow">
+                            <div className="card-body">
+                                <h2 className='text-center'>
+                                    MovieShowPage - {id}
+                                </h2>
+                                <h5 className="text-center">
+                                    (Vuoto se film non presente (&&))
+                                </h5>
+
+
+
+                                <p className="mb-0">
+                                    Movie {id} not found
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
+
+
+
+
+
         </>
     );
 };

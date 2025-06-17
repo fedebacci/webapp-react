@@ -5,6 +5,7 @@ import DefaultLayout from "./layouts/DefaultLayout";
 import HomePage from './pages/HomePage';
 import MoviesIndexPage from './pages/movies/MoviesIndexPage';
 import MovieShowPage from './pages/movies/MovieShowPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
               <Route path={pages.SHOWMOVIE(":id")} element={<MovieShowPage />} />
             </Route>
 
-            {/* <Route path='*' element={<NotFoundPage />} /> */}
+            <Route path='*' element={<NotFoundPage />} />
           </Route>
 
         </Routes>

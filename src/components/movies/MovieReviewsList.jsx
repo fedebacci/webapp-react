@@ -24,7 +24,7 @@ export default function MovieReviewsList ({ reviews }) {
                         })
                     :
                     <p>
-                        No reviews not found
+                        No reviews found
                     </p>
                 }
             </div>

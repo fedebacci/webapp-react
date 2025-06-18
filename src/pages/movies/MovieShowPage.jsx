@@ -147,19 +147,19 @@ export default function MovieShowPage () {
                                     (Comunque riempito con messaggio se film non presente (? :))
                                 </h5>
 
-
+                                <hr className="my-5" />
 
                                 <MovieInfo
                                     movie={movie}
                                 />
 
-
+                                <hr className="my-5" />
 
                                 <MovieReviewsList
                                     reviews={movie.reviews}
                                 />
 
-
+                                <hr className="my-5" />
 
                                 <div className="movie-page-add-review card shadow">
                                     <div className="card-body">

@@ -13,6 +13,8 @@ export default function MoviesIndexPage () {
                                 MoviesIndexPage
                             </h2>
 
+                            <hr className="my-5" />
+
                             <MoviesList />
                         </div>
                     </div>

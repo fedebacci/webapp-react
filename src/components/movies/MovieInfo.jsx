@@ -1,3 +1,9 @@
+import RatingStars from "../ui/RatingStars";
+
+
+
+
+
 export default function MovieInfo ({ movie }) {
     return (
         <div className="movie-info card shadow my-3">
@@ -57,7 +63,13 @@ export default function MovieInfo ({ movie }) {
                                 </p>
 
                                 <p>
-                                    AVG Vote: {movie.average_vote || "No vote available"}
+                                    {/* DEBUG */}
+                                    {/* AVG Vote: {movie.average_vote || "No vote available"}
+                                    <br /> */}
+
+                                    <RatingStars
+                                        vote={movie.average_vote} 
+                                    />
                                 </p>
                             </div>
                             <div className="col-12">

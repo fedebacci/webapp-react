@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import pages from "../../assets/js/data/pages";
 
+import RatingStars from "../ui/RatingStars";
+
+
+
+
+
 export default function MovieCard ({ movie }) {
     return (
         <div className="card shadow h-100">
@@ -18,7 +24,13 @@ export default function MovieCard ({ movie }) {
                     {movie.abstract}
                 </p>
                 <p>
-                    AVG Vote: {movie.average_vote || "No vote available"}
+                    {/* DEBUG */}
+                    {/* AVG Vote: {movie.average_vote || "No vote available"}
+                    <br /> */}
+
+                    <RatingStars
+                        vote={movie.average_vote} 
+                    />
                 </p>
 
                 <Link

@@ -10,8 +10,11 @@ export default function RatingStars ({ vote, maxVote = 5 }) {
     const renderStars = () => {
         const stars = [];
 
+        // console.debug(vote);
+        if (!vote) return "No vote available";
+
         for (let i = 0; i < maxVote; i++) {
-            i < vote ? stars.push(<FontAwesomeIcon key={i} icon={faStarFull} className='text-warning'/>) : stars.push(<FontAwesomeIcon icon={faStarEmpty} className='text-warning'/>);
+            i < vote ? stars.push(<FontAwesomeIcon key={i} icon={faStarFull} className='text-warning'/>) : stars.push(<FontAwesomeIcon key={i} icon={faStarEmpty} className='text-warning'/>);
         };
 
         return stars;

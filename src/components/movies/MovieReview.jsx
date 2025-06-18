@@ -1,3 +1,10 @@
+import RatingStars from "../ui/RatingStars";
+
+
+
+
+
+
 export default function MovieReview ({ review }) {
     return (
         <div key={review.id} className="movie-review card shadow my-3">
@@ -17,7 +24,14 @@ export default function MovieReview ({ review }) {
                         Vote:
                     </strong>
                     {" "}
-                    {review.vote}
+                    {/* {review.vote} */}
+                    {/* <RatingStars
+                        vote={review.vote} 
+                        maxVote={4} 
+                    /> */}
+                    <RatingStars
+                        vote={review.vote}
+                    />
                 </p>
                 <p>
                     <strong>

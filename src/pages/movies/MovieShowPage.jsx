@@ -125,27 +125,19 @@ export default function MovieShowPage () {
 
 
 
-            { movie && <hr />}
+            {/* { movie && <hr />} */}
 
 
 
 
 
-            {
+            {/* {
                 movie !== undefined ?
                 <section>
                     <div className="container my-5">
                         <div className="card shadow">
                             <div className="card-body">
-                                {/* <Link
-                                    className="btn btn-outline-dark"
-                                    to={pages.MOVIES()}
-                                >
-                                    Back to movies
-                                </Link> */}
                                 <h2 className='text-center'>
-                                    {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
-                                    {/* MovieShowPage */}
                                     MovieShowPage - {movie?.id}
                                 </h2>
                                 <h5 className="text-center">
@@ -201,7 +193,7 @@ export default function MovieShowPage () {
                         </div>
                     </div>
                 </section>
-            }
+            } */}
 
 
 

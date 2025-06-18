@@ -55,6 +55,10 @@ export default function MovieInfo ({ movie }) {
                                     {" "}
                                     {movie.release_year}
                                 </p>
+
+                                <p>
+                                    AVG Vote: {movie.average_vote || "No vote available"}
+                                </p>
                             </div>
                             <div className="col-12">
                                 <hr />

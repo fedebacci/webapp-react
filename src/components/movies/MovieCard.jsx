@@ -17,6 +17,9 @@ export default function MovieCard ({ movie }) {
                 <p>
                     {movie.abstract}
                 </p>
+                <p>
+                    AVG Vote: {movie.average_vote || "No vote available"}
+                </p>
 
                 <Link
                     className="btn btn-primary"

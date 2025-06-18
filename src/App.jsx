@@ -1,7 +1,9 @@
 // # IMPORTS
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import pages from "./assets/js/data/pages";
+
 import DefaultLayout from "./layouts/DefaultLayout";
+
+import pages from "./assets/js/data/pages";
 import HomePage from './pages/HomePage';
 import MoviesIndexPage from './pages/movies/MoviesIndexPage';
 import MovieShowPage from './pages/movies/MovieShowPage';
@@ -9,10 +11,9 @@ import NotFoundPage from './pages/NotFoundPage';
 
 import { LoaderProvider } from './contexts/LoaderContext';
 
-function App() {
-  // # USE STATE EXAMPLE
-  // const [count, setCount] = useState(0)
 
+
+function App() {
   return (
     <>
       <LoaderProvider>

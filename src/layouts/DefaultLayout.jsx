@@ -20,6 +20,7 @@ export default function DefaultLayout () {
 
 
             <Loader isShow={isLoading} />
+            {/* DEBUG */}
             {/* <Loader isShow={true} /> */}
             {/* <Loader isShow={false} /> */}
         </>

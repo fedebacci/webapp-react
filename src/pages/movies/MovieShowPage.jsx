@@ -1,18 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
 import { Link } from "react-router-dom";
 import pages from "../../assets/js/data/pages";
-
-
-
-import { useLoader } from "../../contexts/LoaderContext";
-
-
 
 import axios from "axios";
 const apiUrl = import.meta.env.VITE_API_URL + '/movies/';
 
-
+import { useLoader } from "../../contexts/LoaderContext";
 
 import MovieInfo from "../../components/movies/MovieInfo";
 import MovieReviewsList from "../../components/movies/MovieReviewsList";
@@ -22,12 +17,11 @@ import MovieReviewsList from "../../components/movies/MovieReviewsList";
 export default function MovieShowPage () {
 
     const { id } = useParams();
-
     const { setIsLoading } = useLoader();
 
 
+    
     const [movie, setMovie] = useState();
-
     const fetchMovie = () => {
         setIsLoading(true);
 
@@ -78,25 +72,19 @@ export default function MovieShowPage () {
 
 
 
-
-
             {
                 movie &&
                 <section>
                     <div className="container my-5">
                         <div className="card shadow">
                             <div className="card-body">
-                                {/* <Link
-                                    className="btn btn-outline-dark"
-                                    to={pages.MOVIES()}
-                                >
-                                    Back to movies
-                                </Link> */}
                                 <h2 className='text-center'>
-                                    {/* MovieShowPage - {movie?.title || "Titolo sconosciuto"} */}
                                     {/* MovieShowPage */}
+                                    {/* DEBUG */}
                                     MovieShowPage - {movie?.id}
                                 </h2>
+                                {/* ? (1/2) Meglio mettere messaggio film non presente o lasciare vuoto? */}
+                                {/* ? (1/2) Caso 1/2: Vuoto se film non presente (&&) */}
                                 <h5 className="text-center">
                                     (Vuoto se film non presente (&&))
                                 </h5>
@@ -134,7 +122,8 @@ export default function MovieShowPage () {
 
 
 
-
+            {/* ? (2/2) Meglio mettere messaggio film non presente o lasciare vuoto? */}
+            {/* ? (2/2) Caso 2/2: Comunque riempito con messaggio se film non presente (? :) */}
             {/* { movie && <hr />} */}
 
 

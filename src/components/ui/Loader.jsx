@@ -8,9 +8,6 @@ export default function Loader ({ isShow }) {
 
     return (
         <div className="loader">
-            {/* <h3>
-                Loading...
-            </h3> */}
             <FontAwesomeIcon 
                 icon={faCircleNotch} 
                 spin

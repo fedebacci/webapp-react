@@ -33,8 +33,10 @@ export default function MovieShowPage () {
             })
             .catch(error => {
                 console.error(error);
-                console.error("error.request", error.request);
-                console.error("error.response", error.response);
+                setMovie();
+                // DEBUG
+                // console.error("error.request.responseURL", error.request.responseURL);
+                // console.error("error.response.data.message", error.response.data.message);
             })
             .finally(() => {
                 setIsLoading(false);
@@ -72,19 +74,21 @@ export default function MovieShowPage () {
 
 
 
-            {
+
+
+            {/* ? (1/2) Meglio mettere messaggio film non presente o lasciare vuoto? */}
+            {/* ? (1/2) Caso 1/2: Vuoto se film non presente (&&) */}
+            {/* {
                 movie &&
                 <section>
                     <div className="container my-5">
                         <div className="card shadow">
                             <div className="card-body">
-                                <h2 className='text-center'>
+                                <h2 className='text-center'> */}
                                     {/* MovieShowPage */}
                                     {/* DEBUG */}
-                                    MovieShowPage - {movie?.id}
+                                    {/* MovieShowPage - {movie?.id}
                                 </h2>
-                                {/* ? (1/2) Meglio mettere messaggio film non presente o lasciare vuoto? */}
-                                {/* ? (1/2) Caso 1/2: Vuoto se film non presente (&&) */}
                                 <h5 className="text-center">
                                     (Vuoto se film non presente (&&))
                                 </h5>
@@ -117,20 +121,14 @@ export default function MovieShowPage () {
                         </div>
                     </div>
                 </section>
-            }
-
+            } */}
 
 
 
             {/* ? (2/2) Meglio mettere messaggio film non presente o lasciare vuoto? */}
             {/* ? (2/2) Caso 2/2: Comunque riempito con messaggio se film non presente (? :) */}
             {/* { movie && <hr />} */}
-
-
-
-
-
-            {/* {
+            {
                 movie !== undefined ?
                 <section>
                     <div className="container my-5">
@@ -192,7 +190,7 @@ export default function MovieShowPage () {
                         </div>
                     </div>
                 </section>
-            } */}
+            }
 
 
 

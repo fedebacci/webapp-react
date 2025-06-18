@@ -19,6 +19,8 @@ export default function MoviesList () {
     const fetchMovies = () => {
         setIsLoading(true);
         axios
+            // DEBUG
+            // .get(apiUrl + "/doesnotExist")
             .get(apiUrl)
             .then(response => {
                 console.info(response.data.message, response.data.movies);
@@ -26,6 +28,7 @@ export default function MoviesList () {
             })
             .catch(error => {
                 console.error(error);
+                setMovies([]);
                 // DEBUG
                 // console.error("error.request.responseURL", error.request.responseURL);
                 // console.error("error.response.data.message", error.response.data.message);

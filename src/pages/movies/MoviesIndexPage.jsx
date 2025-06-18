@@ -12,12 +12,12 @@ export default function MoviesIndexPage () {
                             <h2 className='text-center'>
                                 MoviesIndexPage
                             </h2>
+
+                            <MoviesList />
                         </div>
                     </div>
                 </div>
             </section>
-
-            <MoviesList />            
         </>
     );
 };

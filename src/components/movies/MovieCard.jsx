@@ -8,6 +8,9 @@ export default function MovieCard ({ movie }) {
                 <img className="img-fluid" src={movie.image} alt={movie.title} />
             </div>
             <div className="card-body">
+                <h2 className='text-center'>
+                    <small style={{fontSize: '1rem'}}>MovieCard</small>
+                </h2>
                 <h4>
                     {movie.title}
                 </h4>

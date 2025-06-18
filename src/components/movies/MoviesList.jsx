@@ -42,37 +42,33 @@ export default function MoviesList () {
 
 
     return (
-        <section>
-            <div className="container my-5">
-                <div className="card shadow">
-                    <div className="card-body">
-                        <div className="row row-cols-5 g-3">
-                            <div className="col-12">
-                                <h2 className='text-center'>
-                                    MoviesList
-                                </h2>
-                            </div>
-
-                            {
-                                movies.length > 0 ?
-                                    movies.map(movie => {
-                                        return (
-                                            <div key={movie.id} className="col">
-                                                <MovieCard movie={movie} />
-                                            </div>
-                                        )
-                                    })
-                                :
-                                <div className="col-12">
-                                    <p className="mb-0">
-                                        No movies available
-                                    </p>
-                                </div>
-                            }
-                        </div>
+        <div className="card shadow my-3">
+            <div className="card-body">
+                <div className="row row-cols-5 g-3">
+                    <div className="col-12">
+                        <h2 className='text-center'>
+                            MoviesList
+                        </h2>
                     </div>
+
+                    {
+                        movies.length > 0 ?
+                            movies.map(movie => {
+                                return (
+                                    <div key={movie.id} className="col">
+                                        <MovieCard movie={movie} />
+                                    </div>
+                                )
+                            })
+                        :
+                        <div className="col-12">
+                            <p className="mb-0">
+                                No movies available
+                            </p>
+                        </div>
+                    }
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

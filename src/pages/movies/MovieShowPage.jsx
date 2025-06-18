@@ -6,6 +6,8 @@ import pages from "../../assets/js/data/pages";
 
 import axios from "axios";
 const apiUrl = import.meta.env.VITE_API_URL + '/movies/';
+// DEBUG
+// const apiUrl = import.meta.env.VITE_API_URL + '/moviess/';
 
 import { useLoader } from "../../contexts/LoaderContext";
 
@@ -26,7 +28,11 @@ export default function MovieShowPage () {
         setIsLoading(true);
 
         axios
+            // DEBUG
             .get(apiUrl + id)
+            // * Wow, express riesce a rimuovere la stringa dal numero
+            // .get(apiUrl + id + "doesNotExist")
+            // .get(apiUrl + "doesNotExist")
             .then(response => {
                 console.info(response.data.message, response.data.movie);
                 setMovie(response.data.movie);

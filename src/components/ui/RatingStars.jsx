@@ -11,7 +11,7 @@ export default function RatingStars ({ vote, maxVote = 5 }) {
         const stars = [];
 
         for (let i = 0; i < maxVote; i++) {
-            i < vote ? stars.push(<FontAwesomeIcon icon={faStarFull} className='text-warning'/>) : stars.push(<FontAwesomeIcon icon={faStarEmpty} className='text-warning'/>);
+            i < vote ? stars.push(<FontAwesomeIcon key={i} icon={faStarFull} className='text-warning'/>) : stars.push(<FontAwesomeIcon icon={faStarEmpty} className='text-warning'/>);
         };
 
         return stars;

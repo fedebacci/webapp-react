@@ -20,7 +20,7 @@ export default function MoviesList () {
         setIsLoading(true);
         axios
             // DEBUG
-            // .get(apiUrl + "/doesnotExist")
+            // .get(apiUrl + "doesnotExist")
             .get(apiUrl)
             .then(response => {
                 console.info(response.data.message, response.data.movies);

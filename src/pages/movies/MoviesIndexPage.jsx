@@ -7,13 +7,14 @@ export default function MoviesIndexPage () {
         <>
             <section>
                 <div className="container my-5">
-                    <div className="card shadow">
+                    {/* <div className="card shadow"> */}
+                    <div className="">
                         <div className="card-body">
-                            <h2 className='text-center'>
+                            {/* <h2 className='text-center'>
                                 MoviesIndexPage
                             </h2>
 
-                            <hr className="my-5" />
+                            <hr className="my-5" /> */}
 
                             <MoviesList />
                         </div>

@@ -6,7 +6,7 @@ import pages from "../../assets/js/data/pages";
 
 export default function Header () {
     return (
-    <header>
+    <header className="sticky-top">
         <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
             <div className="container-fluid">
                 <Link className='navbar-brand' to={pages.HOME()}>

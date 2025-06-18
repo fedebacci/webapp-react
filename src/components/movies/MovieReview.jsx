@@ -7,11 +7,12 @@ import RatingStars from "../ui/RatingStars";
 
 export default function MovieReview ({ review }) {
     return (
-        <div key={review.id} className="movie-review card shadow my-3">
+        // <div key={review.id} className="movie-review card shadow my-3">
+        <div key={review.id} className="movie-review card h-100 bg-dark text-bg-dark border-secondary-subtle" style={{boxShadow: '0 0 20px rgba(255,255,255,.05)'}}>
             <div className="card-body">
-                <h2 className='text-center'>
+                {/* <h2 className='text-center'>
                     MovieReview - {review.id}
-                </h2>
+                </h2> */}
                 <p>
                     <strong>
                         Name:
@@ -40,7 +41,10 @@ export default function MovieReview ({ review }) {
                     {" "}
                     {review.text}
                 </p>
-                <hr />
+
+
+                
+                {/* <hr />
                 <p className="text-secondary m-0">
                     <small>
                         <strong>
@@ -76,7 +80,7 @@ export default function MovieReview ({ review }) {
                         {" "}
                         {review.updated_at}
                     </small>
-                </p>
+                </p> */}
             </div>
         </div>
     );

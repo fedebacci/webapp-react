@@ -6,12 +6,13 @@ import RatingStars from "../ui/RatingStars";
 
 export default function MovieInfo ({ movie }) {
     return (
-        <div className="movie-info card shadow my-3">
-            <div className="card-body">
+        // <div className="movie-info card shadow my-3">
+        <div className="movie-info my-3 bg-dark text-bg-dark border-secondary-subtle">
+            {/* <div className="card-body"> */}
 
-                <h2 className='text-center'>
+                {/* <h2 className='text-center'>
                     MovieInfo
-                </h2>
+                </h2> */}
 
                 {
                     movie !== undefined ?
@@ -72,7 +73,7 @@ export default function MovieInfo ({ movie }) {
                                     />
                                 </p>
                             </div>
-                            <div className="col-12">
+                            {/* <div className="col-12">
                                 <hr />
                             </div>
                             <div className="col-12">
@@ -103,7 +104,7 @@ export default function MovieInfo ({ movie }) {
                                         {movie.updated_at}
                                     </small>
                                 </p>
-                            </div>
+                            </div> */}
                         </div>
                     </>
                     :
@@ -111,7 +112,7 @@ export default function MovieInfo ({ movie }) {
                         Movie not found
                     </p>
                 }
-            </div>
+            {/* </div> */}
         </div>
     );
 };

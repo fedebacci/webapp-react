@@ -45,12 +45,21 @@ export default function MoviesList () {
 
 
     return (
-        <div className="card shadow my-3">
+        // <div className="card shadow my-3">
+        <div className="">
             <div className="card-body">
-                <div className="row row-cols-5 g-3">
-                    <div className="col-12">
+                <div className="row row-cols-2 g-3">
+                    {/* <div className="col-12">
                         <h2 className='text-center'>
                             MoviesList
+                        </h2>
+                    </div> */}
+
+
+
+                    <div className="col-12">
+                        <h2 className="mb-0">
+                            MOVIES
                         </h2>
                     </div>
 

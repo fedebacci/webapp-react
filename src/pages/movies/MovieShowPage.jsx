@@ -62,18 +62,20 @@ export default function MovieShowPage () {
             {/* # Metto stile in linea per attaccare l'elemento in alto, in modo da avere sempre il link a disposizione e risparmiare tempo quando faccio debug */}
             {/* todo: CANCELLARE LO STILE QUANDO TERMINA IL DEBUG E SI PASSA ALLO STILE O NEL CASO DOVESSE RIMANERE LO STICKY SISTEMARE UNA CLASSE O UN ID CSS */}
             {/* todo: RIMERRERE CLASSE MY-5 INVECE DI PY-5 AL CONTAINER */}
-            <section style={{position: 'sticky', top: '0', zIndex: '2', backgroundColor: '#FFFFFF', boxShadow: '0 0 5px rgba(0,0,0,0.33)'}}>
+            {/* <section style={{position: 'sticky', top: '0', zIndex: '2', backgroundColor: '#FFFFFF', boxShadow: '0 0 5px rgba(0,0,0,0.33)'}}> */}
+            <section style={{position: 'sticky', top: '57px', zIndex: '2', backgroundColor: '#212529'}}>
                 <div className="container py-5">
                 {/* <div className="container my-5"> */}
-                    <div className="card shadow">
-                    <div className="card-body">
-                        <Link
-                            className="btn btn-outline-dark"
-                            to={pages.MOVIES()}
-                        >
-                            Back to movies
-                        </Link>
-                    </div>
+                    {/* <div className="card shadow"> */}
+                    <div className="">
+                        <div className="card-body">
+                            <Link
+                                className="btn btn-outline-dark text-bg-dark"
+                                to={pages.MOVIES()}
+                            >
+                                Back to movies
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -138,30 +140,41 @@ export default function MovieShowPage () {
                 movie !== undefined ?
                 <section>
                     <div className="container my-5">
-                        <div className="card shadow">
+                        {/* <div className="card shadow"> */}
+                        <div className="">
                             <div className="card-body">
-                                <h2 className='text-center'>
+                                {/* <h2 className='text-center'>
                                     MovieShowPage - {movie?.id}
                                 </h2>
                                 <h5 className="text-center">
                                     (Comunque riempito con messaggio se film non presente (? :))
-                                </h5>
+                                </h5> */}
 
-                                <hr className="my-5" />
+                                {/* <hr className="my-5" /> */}
 
+                                <h2 className="mb-0">
+                                    INFO
+                                </h2>
                                 <MovieInfo
                                     movie={movie}
                                 />
 
                                 <hr className="my-5" />
 
+                                <h2 className="mb-0">
+                                    REVIEWS
+                                </h2>
                                 <MovieReviewsList
                                     reviews={movie.reviews}
                                 />
 
                                 <hr className="my-5" />
 
-                                <div className="movie-page-add-review card shadow">
+                                <h2 className="mb-0">
+                                    ADD YOUR REVIEW
+                                </h2>
+                                {/* <div className="movie-page-add-review card shadow"> */}
+                                <div className="movie-page-add-review card my-3 bg-dark text-bg-dark border-secondary-subtle">
                                     <div className="card-body">
                                         <h2 className='text-center'>
                                             movie-page-add-review (future component || form)

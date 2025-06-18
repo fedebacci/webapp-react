@@ -7,6 +7,7 @@ import MoviesIndexPage from './pages/movies/MoviesIndexPage';
 import MovieShowPage from './pages/movies/MovieShowPage';
 import NotFoundPage from './pages/NotFoundPage';
 
+import { LoaderProvider } from './contexts/LoaderContext';
 
 function App() {
   // # USE STATE EXAMPLE
@@ -14,22 +15,24 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          
-          <Route element={<DefaultLayout />}>
-            <Route index element={<HomePage />} />
+      <LoaderProvider>
+        <BrowserRouter>
+          <Routes>
+            
+            <Route element={<DefaultLayout />}>
+              <Route index element={<HomePage />} />
 
-            <Route path={pages.MOVIES()}>
-              <Route index element={<MoviesIndexPage />} />
-              <Route path={pages.SHOWMOVIE(":id")} element={<MovieShowPage />} />
+              <Route path={pages.MOVIES()}>
+                <Route index element={<MoviesIndexPage />} />
+                <Route path={pages.SHOWMOVIE(":id")} element={<MovieShowPage />} />
+              </Route>
+
+              <Route path='*' element={<NotFoundPage />} />
             </Route>
 
-            <Route path='*' element={<NotFoundPage />} />
-          </Route>
-
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </LoaderProvider>
     </>
   );
 };

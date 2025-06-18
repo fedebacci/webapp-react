@@ -3,7 +3,9 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 
 
-export default function Loader () {
+export default function Loader ({ isShow }) {
+    if (!isShow) return <></>;
+
     return (
         <div className="loader">
             {/* <h3>

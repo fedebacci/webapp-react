@@ -5,12 +5,15 @@ import pages from "../../assets/js/data/pages";
 
 
 
+import { useLoader } from "../../contexts/LoaderContext";
+
+
+
 import axios from "axios";
 const apiUrl = import.meta.env.VITE_API_URL + '/movies/';
 
 
 
-import Loader from "../../components/ui/Loader";
 import MovieInfo from "../../components/movies/MovieInfo";
 import MovieReviewsList from "../../components/movies/MovieReviewsList";
 
@@ -20,11 +23,14 @@ export default function MovieShowPage () {
 
     const { id } = useParams();
 
+    const { setIsLoading } = useLoader();
 
 
     const [movie, setMovie] = useState();
 
     const fetchMovie = () => {
+        setIsLoading(true);
+
         axios
             .get(apiUrl + id)
             .then(response => {
@@ -35,6 +41,9 @@ export default function MovieShowPage () {
                 console.error(error);
                 console.error("error.request", error.request);
                 console.error("error.response", error.response);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
 
@@ -47,9 +56,6 @@ export default function MovieShowPage () {
 
     return (
         <>
-            <Loader />
-
-
             {/* # ATTENZIONE */}
             {/* # Metto stile in linea per attaccare l'elemento in alto, in modo da avere sempre il link a disposizione e risparmiare tempo quando faccio debug */}
             {/* todo: CANCELLARE LO STILE QUANDO TERMINA IL DEBUG E SI PASSA ALLO STILE O NEL CASO DOVESSE RIMANERE LO STICKY SISTEMARE UNA CLASSE O UN ID CSS */}

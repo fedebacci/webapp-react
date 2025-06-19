@@ -15,6 +15,7 @@ export default function MoviesList () {
     
     
     
+    // todo: se faccio richieste in pagina (come showmovie) spostare richiesta sotto in pagina index movies
     const [movies, setMovies] = useState([]);
     const fetchMovies = () => {
         setIsLoading(true);

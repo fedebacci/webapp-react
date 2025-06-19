@@ -13,6 +13,15 @@ import { useLoader } from "../../contexts/LoaderContext";
 
 import MovieInfo from "../../components/movies/MovieInfo";
 import MovieReviewsList from "../../components/movies/MovieReviewsList";
+import ReviewAddForm from "../../components/ReviewAddForm";
+
+
+
+const formInitialData = {
+    name: "",
+    vote: 1,
+    text: "",
+}
 
 
 
@@ -20,6 +29,8 @@ export default function MovieShowPage () {
 
     const { id } = useParams();
     const { setIsLoading } = useLoader();
+
+    
 
 
     
@@ -56,6 +67,46 @@ export default function MovieShowPage () {
 
 
 
+
+    const [formData, setFormData] = useState(formInitialData);
+
+    const fetchStoreBookReview = () => {
+        setIsLoading(true);
+        axios
+            .post(apiUrl + id + "/reviews", formData)
+            .then(response => {
+                console.info(response.data.message, response.data);
+                // * Chiedo nuovamente i dati del libro e aggiorno lista delle recensioni
+                // todo: capire se casistica adatta a richiesta solo per nuova recensione e modifica dello state movie 
+                fetchMovie();
+
+                setFormData(formInitialData);
+            })
+            .catch(error => {
+                console.error(error);
+                // DEBUG
+                // console.error("error.request.responseURL", error.request.responseURL);
+                // console.error("error.response.data.message", error.response.data.message);
+            })
+            .finally(() => {
+                // ! NB: Non serve se faccio fetch nel then di questa richiesta
+                // setIsLoading(false);
+            });
+    };
+
+    const handleStoreReviewFormSubmit = (e) => {
+        e.preventDefault();
+        console.log("handleStoreReviewFormSubmit");
+
+        fetchStoreBookReview();
+    };
+
+
+
+
+
+
+
     return (
         <>
             {/* # ATTENZIONE */}
@@ -70,7 +121,8 @@ export default function MovieShowPage () {
                     <div className="">
                         <div className="card-body">
                             <Link
-                                className="btn btn-outline-dark text-bg-dark"
+                                // className="btn btn-outline-light text-bg-dark"
+                                className="btn btn-outline-secondary"
                                 to={pages.MOVIES()}
                             >
                                 Back to movies
@@ -168,17 +220,32 @@ export default function MovieShowPage () {
                                     reviews={movie.reviews}
                                 />
 
+
+
                                 <hr className="my-5" />
 
                                 <h2 className="mb-0">
                                     ADD YOUR REVIEW
                                 </h2>
                                 {/* <div className="movie-page-add-review card shadow"> */}
+                                {/* <div className="movie-page-add-review card my-3 bg-dark text-bg-dark border-secondary-subtle">
+                                    <div className="card-body">
+                                        <h2 className='text-center'>
+                                            movie-page-add-review (future component || form)
+                                        </h2>
+                                    </div>
+                                </div> */}
                                 <div className="movie-page-add-review card my-3 bg-dark text-bg-dark border-secondary-subtle">
                                     <div className="card-body">
                                         <h2 className='text-center'>
                                             movie-page-add-review (future component || form)
                                         </h2>
+
+                                        <ReviewAddForm 
+                                            formData={formData}
+                                            setFormData={setFormData}
+                                            handleFormSubmit={handleStoreReviewFormSubmit} 
+                                        />
                                     </div>
                                 </div>
 

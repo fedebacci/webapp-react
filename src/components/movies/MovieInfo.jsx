@@ -18,7 +18,7 @@ export default function MovieInfo ({ movie }) {
                     movie !== undefined ?
                     <>
                         <div className="row g-3">
-                            <div className="col-4">
+                            <div className="col-3">
                                 <img
                                     className="img-fluid"
                 
@@ -26,7 +26,7 @@ export default function MovieInfo ({ movie }) {
                                     alt={movie.title}
                                 />
                             </div>
-                            <div className="col-8">
+                            <div className="col-9">
                                 <p>
                                     <strong>
                                         Title:
@@ -67,10 +67,15 @@ export default function MovieInfo ({ movie }) {
                                     {/* DEBUG */}
                                     {/* AVG Vote: {movie.average_vote || "No vote available"}
                                     <br /> */}
-
+                                    <strong>
+                                        Average vote:
+                                    </strong>
+                                    {" "}
                                     <RatingStars
                                         vote={movie.average_vote} 
                                     />
+                                    {" "}
+                                    {`(${movie.average_vote})`}
                                 </p>
                             </div>
                             {/* <div className="col-12">

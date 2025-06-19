@@ -13,7 +13,7 @@ export default function MovieReviewsList ({ reviews }) {
 
 
 
-                <div className="row">
+                <div className="row g-3">
                     {
                         reviews.length > 0 ?
                             reviews.map(review => {

@@ -13,7 +13,7 @@ import { useLoader } from "../../contexts/LoaderContext";
 
 import MovieInfo from "../../components/movies/MovieInfo";
 import MovieReviewsList from "../../components/movies/MovieReviewsList";
-import ReviewAddForm from "../../components/ReviewAddForm";
+import ReviewAddForm from "../../components/forms/ReviewAddForm";
 
 
 
@@ -70,7 +70,7 @@ export default function MovieShowPage () {
 
     const [formData, setFormData] = useState(formInitialData);
 
-    const fetchStoreBookReview = () => {
+    const fetchStoreMovieReview = () => {
         setIsLoading(true);
         axios
             .post(apiUrl + id + "/reviews", formData)
@@ -98,7 +98,7 @@ export default function MovieShowPage () {
         e.preventDefault();
         console.log("handleStoreReviewFormSubmit");
 
-        fetchStoreBookReview();
+        fetchStoreMovieReview();
     };
 
 

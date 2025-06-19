@@ -7,6 +7,7 @@ import pages from "./assets/js/data/pages";
 import HomePage from './pages/HomePage';
 import MoviesIndexPage from './pages/movies/MoviesIndexPage';
 import MovieShowPage from './pages/movies/MovieShowPage';
+import MovieAddPage from './pages/movies/MovieAddPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import { LoaderProvider } from './contexts/LoaderContext';
@@ -26,6 +27,7 @@ function App() {
               <Route path={pages.MOVIES()}>
                 <Route index element={<MoviesIndexPage />} />
                 <Route path={pages.SHOWMOVIE(":id")} element={<MovieShowPage />} />
+                <Route path={pages.ADDMOVIE()} element={<MovieAddPage />} />
               </Route>
 
               <Route path='*' element={<NotFoundPage />} />

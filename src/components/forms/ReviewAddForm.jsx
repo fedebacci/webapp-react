@@ -24,6 +24,7 @@ export default function ReviewAddForm ({ handleFormSubmit, formData, setFormData
                         value={formData.name}
                         onChange={handleInputChange}
                         name="name"
+                        required
 
                         type="text"
                         id="name" 
@@ -44,6 +45,7 @@ export default function ReviewAddForm ({ handleFormSubmit, formData, setFormData
                         value={formData.vote}
                         onChange={handleInputChange}
                         name="vote"
+                        required
 
                         type="number"
                         min="1"
@@ -65,6 +67,7 @@ export default function ReviewAddForm ({ handleFormSubmit, formData, setFormData
                         value={formData.text}
                         onChange={handleInputChange}
                         name="text"
+                        required
 
                         id="text"
                         rows="3"

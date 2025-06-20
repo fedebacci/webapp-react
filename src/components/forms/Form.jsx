@@ -60,17 +60,15 @@ export default function Form ({ handleFormSubmit, formData, setFormData, btnType
                                 </label>
 
                                 {
-                                    // formField.type === "number":
-                                    // formField.type === "file": 
-                                    // formField.type === "textarea": 
-                                }
-                                {
                                     formField.type === "textarea" ?
                                         <textarea 
                                             value={formField.value}
                                             onChange={handleInputChange}
                                             name={formField.name}
                                             required
+
+                                            minLength={formField.minLength}
+                                            maxLength={formField.maxLength}
 
                                             id={formField.name}
                                             rows={formField.rows ?? "3"}
@@ -94,6 +92,11 @@ export default function Form ({ handleFormSubmit, formData, setFormData, btnType
                                                 onChange={handleInputChange}
                                                 name={formField.name} 
                                                 required
+
+                                                min={formField.min}
+                                                max={formField.max}
+                                                minLength={formField.minLength}
+                                                maxLength={formField.maxLength}
 
                                                 type={formField.type} 
                                                 id={formField.name}  

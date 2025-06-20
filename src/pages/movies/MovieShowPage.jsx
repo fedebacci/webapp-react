@@ -152,6 +152,12 @@ export default function MovieShowPage () {
         //     .post(apiUrl + id + "/reviews", DumbFormDataToSend)
         //     .then(response => {
         //         console.info(response.data.message, response.data);
+
+        //         // * Chiedo nuovamente i dati del libro e aggiorno lista delle recensioni
+        //         // todo: capire se casistica adatta a richiesta solo per nuova recensione e modifica dello state movie 
+        //         fetchMovie();
+
+        //         setFormData(dumbFormFormInitialData);
         //     })
         //     .catch(error => {
         //         console.error(error);

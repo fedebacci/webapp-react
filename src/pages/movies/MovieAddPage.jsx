@@ -49,6 +49,8 @@ const dumbFormFormInitialData = [
         value: "",
 
         col_size: "4",
+        minLength: 1,
+        maxLength: 10
     },
     {
         name: "release_year",
@@ -148,7 +150,7 @@ export default function MovieAddPage () {
         // axios
         //     .post(
         //         apiUrl, 
-        //         formData, 
+        //         DumbFormDataToSend, 
         //         {
         //             headers: {
         //                 "Content-Type": "multipart/form-data"
@@ -161,7 +163,7 @@ export default function MovieAddPage () {
 
         //         navigate(pages.SHOWMOVIE(response.data.newMovie_id));
 
-        //         setFormData(formInitialData);
+        //         setFormData(dumbFormFormInitialData);
         //     })
         //     .catch(error => {
         //         console.error(error);

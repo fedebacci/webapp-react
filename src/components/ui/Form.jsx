@@ -40,71 +40,66 @@ export default function Form ({ handleFormSubmit, formData, setFormData, btnType
 
 
     return (
-        <>
-            <h2 className="text-center">
-                dumbForm (Form.jsx)
-            </h2>
-            <form className="row g-3" onSubmit={handleFormSubmit}>
+        <form className="row g-3" onSubmit={handleFormSubmit}>
 
-                {     
-                    formData.map((formField, index) => {
-                        return (
-                            <div key={index} className={`col-${formField.col_size ?? 6}`}>
-                                
-                                <label 
-                                    htmlFor={formField.name} 
-                                    className="form-label"
-                                >
-                                    {formField.label} 
-                                </label>
+            {     
+                formData.map((formField, index) => {
+                    return (
+                        <div key={index} className={`col-${formField.col_size ?? 6}`}>
+                            
+                            <label 
+                                htmlFor={formField.name} 
+                                className="form-label"
+                            >
+                                {formField.label} 
+                            </label>
 
-                                {
-                                    formField.type === "textarea" ?
-                                        <FormTextAreaInput
+                            {
+                                formField.type === "textarea" ?
+                                    <FormTextAreaInput
+                                        handleInputChange={handleInputChange}
+                                        value={formField.value}
+                                        name={formField.name}
+                                        minLength={formField.minLength}
+                                        maxLength={formField.maxLength}
+                                        rows={formField.rows}
+                                    />
+                                :
+                                    formField.type === "file" ?
+                                        <FormFileInput
+                                            handleInputChange={handleInputChange}
+                                            name={formField.name}
+                                            type={formField.type}
+                                        />
+                                    :
+                                        <FormNumberTextInput
                                             handleInputChange={handleInputChange}
                                             value={formField.value}
                                             name={formField.name}
+                                            min={formField.min}
+                                            max={formField.max}
                                             minLength={formField.minLength}
                                             maxLength={formField.maxLength}
-                                            rows={formField.rows}
+                                            type={formField.type}
                                         />
-                                    :
-                                        formField.type === "file" ?
-                                            <FormFileInput
-                                                handleInputChange={handleInputChange}
-                                                name={formField.name}
-                                                type={formField.type}
-                                            />
-                                        :
-                                            <FormNumberTextInput
-                                                handleInputChange={handleInputChange}
-                                                value={formField.value}
-                                                name={formField.name}
-                                                min={formField.min}
-                                                max={formField.max}
-                                                minLength={formField.minLength}
-                                                maxLength={formField.maxLength}
-                                                type={formField.type}
-                                            />
-                                }
+                            }
 
-                            </div> 
-                        )
-                    })
-                }
+                        </div> 
+                    )
+                })
+            }
 
 
 
-                <div className="col-12">
-                    <button
-                        type="submit"
-                        className={`btn btn-${btnType}`}
-                    >
-                        {btnText}
-                    </button>
-                </div>
+            <div className="col-12">
+                <button
+                    type="submit"
+                    className={`btn btn-${btnType}`}
+                >
+                    {btnText}
+                </button>
+            </div>
 
-            </form>
-        </>
+        </form>
     );
 };

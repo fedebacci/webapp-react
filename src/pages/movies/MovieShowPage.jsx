@@ -14,20 +14,12 @@ import { useLoader } from "../../contexts/LoaderContext";
 import MovieInfo from "../../components/movies/MovieInfo";
 import MovieReviewsList from "../../components/movies/MovieReviewsList";
 
-// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
-// import ReviewAddForm from "../../components/forms/ReviewAddForm";
+
 import Form from "../../components/ui/Form";
 
 
-// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
-// const formInitialData = {
-//     name: "",
-//     vote: 1,
-//     text: "",
-// }
 
-// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
-const dumbFormFormInitialData = [
+const formInitialData = [
     {
         name: "name",
         label: "Name",
@@ -56,8 +48,8 @@ const dumbFormFormInitialData = [
     },
 ];
 
-const dumbFormBtnType = "success";
-const dumbFormBtnText = "Invia";
+const formBtnType = "success";
+const formBtnText = "Invia";
 
 
 
@@ -103,90 +95,52 @@ export default function MovieShowPage () {
 
 
 
-    // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
-    // const [formData, setFormData] = useState(formInitialData);
 
-    // const fetchStoreMovieReview = () => {
-    //     setIsLoading(true);
-    //     axios
-    //         .post(apiUrl + id + "/reviews", formData)
-    //         .then(response => {
-    //             console.info(response.data.message, response.data);
-    //             // * Chiedo nuovamente i dati del libro e aggiorno lista delle recensioni
-    //             // todo: capire se casistica adatta a richiesta solo per nuova recensione e modifica dello state movie 
-    //             fetchMovie();
+    const [formData, setFormData] = useState(formInitialData);
 
-    //             setFormData(formInitialData);
-    //         })
-    //         .catch(error => {
-    //             console.error(error);
-    //             // DEBUG
-    //             // console.error("error.request.responseURL", error.request.responseURL);
-    //             // console.error("error.response.data.message", error.response.data.message);
-    //         })
-    //         .finally(() => {
-    //             // ! NB: Non serve se faccio fetch nel then di questa richiesta
-    //             // setIsLoading(false);
-    //         });
-    // };
+    const fetchStoreMovieReview = (dataToSend) => {
+        console.log("dataToSend", dataToSend);
 
-    // const handleStoreReviewFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log("handleStoreReviewFormSubmit");
+        setIsLoading(true);
+        axios
+            .post(apiUrl + id + "/reviews", dataToSend)
+            .then(response => {
+                console.info(response.data.message, response.data);
 
-    //     fetchStoreMovieReview();
-    // };
+                // * Chiedo nuovamente i dati del libro e aggiorno lista delle recensioni
+                // todo: capire se casistica adatta a richiesta solo per nuova recensione e modifica dello state movie 
+                fetchMovie();
 
-
-
-
-
-    // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
-    const [dumbFormFormData, dumbFormSetFormData] = useState(dumbFormFormInitialData);
-
-    const fetchDumbFormStoreMovieReview = (DumbFormDataToSend) => {
-        console.log("DumbFormDataToSend", DumbFormDataToSend);
-
-        // setIsLoading(true);
-        // axios
-        //     .post(apiUrl + id + "/reviews", DumbFormDataToSend)
-        //     .then(response => {
-        //         console.info(response.data.message, response.data);
-
-        //         // * Chiedo nuovamente i dati del libro e aggiorno lista delle recensioni
-        //         // todo: capire se casistica adatta a richiesta solo per nuova recensione e modifica dello state movie 
-        //         fetchMovie();
-
-        //         setFormData(dumbFormFormInitialData);
-        //     })
-        //     .catch(error => {
-        //         console.error(error);
-        //         // DEBUG
-        //         // console.error("error.request.responseURL", error.request.responseURL);
-        //         // console.error("error.response.data.message", error.response.data.message);
-        //     })
-        //     .finally(() => {
-        //         // ! NB: Non serve se faccio fetch nel then di questa richiesta
-        //         setIsLoading(false);
-        //     });
+                setFormData(formInitialData);
+            })
+            .catch(error => {
+                console.error(error);
+                // DEBUG
+                // console.error("error.request.responseURL", error.request.responseURL);
+                // console.error("error.response.data.message", error.response.data.message);
+            })
+            .finally(() => {
+                // ! NB: Non serve se faccio fetch nel then di questa richiesta
+                setIsLoading(false);
+            });
     };
 
-    const parseDumbFormData = () => {
-        // console.log("dumbFormFormData", dumbFormFormData);
-        const DumbFormDataToSend = {};
-        dumbFormFormData.forEach((dumbFormInput) => {
-            DumbFormDataToSend[dumbFormInput.name] = dumbFormInput.value;
+    const parseFormData = () => {
+        // console.log("formData", formData);
+        const dataToSend = {};
+        formData.forEach((formInput) => {
+            dataToSend[formInput.name] = formInput.value;
         })
-        // console.log("DumbFormDataToSend", DumbFormDataToSend);
+        // console.log("dataToSend", dataToSend);
 
-        return DumbFormDataToSend;
+        return dataToSend;
     };
 
-    const dumbFormHandleFormSubmit = (e) => {
+    const handleFormSubmit = (e) => {
         e.preventDefault();
-        // console.log("dumbFormHandleFormSubmit dumbFormFormData", dumbFormFormData);
+        // console.log("handleFormSubmit formData", formData);
 
-        fetchDumbFormStoreMovieReview(parseDumbFormData());
+        fetchStoreMovieReview(parseFormData());
     };
 
 
@@ -327,20 +281,12 @@ export default function MovieShowPage () {
                                             movie-page-add-review (future component || form)
                                         </h2>
 
-                                        {/* // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */}
-                                        {/* <ReviewAddForm 
-                                            formData={formData}
-                                            setFormData={setFormData}
-                                            handleFormSubmit={handleStoreReviewFormSubmit} 
-                                        /> */}
-
-                                        {/* // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */}
                                         <Form 
-                                            handleFormSubmit={dumbFormHandleFormSubmit} 
-                                            formData={dumbFormFormData} 
-                                            setFormData={dumbFormSetFormData} 
-                                            btnType={dumbFormBtnType} 
-                                            btnText={dumbFormBtnText}
+                                            handleFormSubmit={handleFormSubmit} 
+                                            formData={formData} 
+                                            setFormData={setFormData} 
+                                            btnType={formBtnType} 
+                                            btnText={formBtnText}
                                         />
 
                                     </div>

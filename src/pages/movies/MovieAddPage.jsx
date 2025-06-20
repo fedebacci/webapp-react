@@ -12,18 +12,77 @@ const apiUrl = import.meta.env.VITE_API_URL + '/movies/';
 
 import { useLoader } from "../../contexts/LoaderContext";
 
-import MovieAddForm from "../../components/forms/MovieAddForm";
+// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
+// import MovieAddForm from "../../components/forms/MovieAddForm";
+import Form from "../../components/forms/Form";
 
 
 
-const formInitialData = {
-    title: "",
-    director: "",
-    genre: "",
-    release_year: new Date().getFullYear(),
-    abstract: "",
-    image: "",
-}
+// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
+// const formInitialData = {
+//     title: "",
+//     director: "",
+//     genre: "",
+//     release_year: new Date().getFullYear(),
+//     abstract: "",
+//     image: "",
+// }
+    
+// - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
+const dumbFormFormInitialData = [
+    {
+        name: "title",
+        label: "Title",
+        type: "text",
+        value: "",
+    },
+    {
+        name: "director",
+        label: "Director",
+        type: "text",
+        value: "",
+    },
+    {
+        name: "genre",
+        label: "Genre",
+        type: "text",
+        value: "",
+
+        col_size: "4",
+    },
+    {
+        name: "release_year",
+        label: "Release year",
+        type: "number",
+        value: new Date().getFullYear(),
+
+        min: 1895,
+        max: new Date().getFullYear(),
+        col_size: "4",
+    },
+    {
+        name: "image",
+        label: "Image",
+        type: "file",
+        value: "",
+
+        col_size: "4",
+    },
+    {
+        name: "abstract",
+        label: "Abstract",
+        type: "textarea",
+        value: "",
+        
+        col_size: "12",
+        rows: 3,
+    },
+];
+
+const dumbFormBtnType = "success";
+const dumbFormBtnText = "Invia";
+
+
 
 
 
@@ -33,46 +92,105 @@ export default function MovieAddPage () {
 
     const navigate = useNavigate();
 
+    // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
+    // const [formData, setFormData] = useState(formInitialData);
 
-    const [formData, setFormData] = useState(formInitialData);
+    // const fetchCreateNewMovie = () => {
+    //     setIsLoading(true);
+    //     axios
+    //         .post(
+    //             apiUrl, 
+    //             formData, 
+    //             {
+    //                 headers: {
+    //                     "Content-Type": "multipart/form-data"
+    //                 }
+    //             }
+    //         )
+    //         .then(response => {
+    //             console.info(response.data.message, response.data);
+    //             console.info("response.data.newMovie_id", response.data.newMovie_id);
 
-    const fetchCreateNewMovie = () => {
-        setIsLoading(true);
-        axios
-            .post(
-                apiUrl, 
-                formData, 
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data"
-                    }
-                }
-            )
-            .then(response => {
-                console.info(response.data.message, response.data);
-                console.info("response.data.newMovie_id", response.data.newMovie_id);
+    //             navigate(pages.SHOWMOVIE(response.data.newMovie_id));
 
-                navigate(pages.SHOWMOVIE(response.data.newMovie_id));
+    //             setFormData(formInitialData);
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //             // DEBUG
+    //             // console.error("error.request.responseURL", error.request.responseURL);
+    //             // console.error("error.response.data.message", error.response.data.message);
+    //         })
+    //         .finally(() => {
+    //             // ! NB: Non serve se faccio fetch nel then di questa richiesta
+    //             setIsLoading(false);
+    //         });
+    // };
 
-                setFormData(formInitialData);
-            })
-            .catch(error => {
-                console.error(error);
-                // DEBUG
-                // console.error("error.request.responseURL", error.request.responseURL);
-                // console.error("error.response.data.message", error.response.data.message);
-            })
-            .finally(() => {
-                // ! NB: Non serve se faccio fetch nel then di questa richiesta
-                setIsLoading(false);
-            });
+    // const handleCreateMovieFormSubmit = (e) => {
+    //     e.preventDefault();
+    //     console.log("handleCreateMovieFormSubmit");
+
+    //     fetchCreateNewMovie();
+    // };
+
+
+
+
+
+    // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
+    const [dumbFormFormData, dumbFormSetFormData] = useState(dumbFormFormInitialData);
+
+    const fetchDumbFormCreateNewMovie = (DumbFormDataToSend) => {
+        console.log("DumbFormDataToSend", DumbFormDataToSend);
+
+        // setIsLoading(true);
+        // axios
+        //     .post(
+        //         apiUrl, 
+        //         formData, 
+        //         {
+        //             headers: {
+        //                 "Content-Type": "multipart/form-data"
+        //             }
+        //         }
+        //     )
+        //     .then(response => {
+        //         console.info(response.data.message, response.data);
+        //         console.info("response.data.newMovie_id", response.data.newMovie_id);
+
+        //         navigate(pages.SHOWMOVIE(response.data.newMovie_id));
+
+        //         setFormData(formInitialData);
+        //     })
+        //     .catch(error => {
+        //         console.error(error);
+        //         // DEBUG
+        //         // console.error("error.request.responseURL", error.request.responseURL);
+        //         // console.error("error.response.data.message", error.response.data.message);
+        //     })
+        //     .finally(() => {
+        //         // ! NB: Non serve se faccio fetch nel then di questa richiesta
+        //         setIsLoading(false);
+        //     });
     };
 
-    const handleCreateMovieFormSubmit = (e) => {
-        e.preventDefault();
-        console.log("handleCreateMovieFormSubmit");
+    const parseDumbFormData = () => {
+        console.log("dumbFormFormData", dumbFormFormData);
+        const DumbFormDataToSend = {};
+        dumbFormFormData.forEach((dumbFormInput) => {
+            DumbFormDataToSend[dumbFormInput.name] = dumbFormInput.value;
+        })
+        console.log("DumbFormDataToSend", DumbFormDataToSend);
 
-        fetchCreateNewMovie();
+        return DumbFormDataToSend;
+    };
+
+    const dumbFormHandleFormSubmit = (e) => {
+        e.preventDefault();
+        console.log("dumbFormHandleFormSubmit dumbFormFormData", dumbFormFormData);
+
+        fetchDumbFormCreateNewMovie(parseDumbFormData());
     };
 
 
@@ -121,11 +239,24 @@ export default function MovieAddPage () {
                             <h2 className="mb-0">
                                 ADD NEW MOVIE
                             </h2>
-                            <MovieAddForm 
+
+                            {/* // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */}
+                            {/* <MovieAddForm 
                                 formData={formData}
                                 setFormData={setFormData}
                                 handleFormSubmit={handleCreateMovieFormSubmit} 
+                            /> */}
+
+
+                            {/* // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */}
+                            <Form 
+                                handleFormSubmit={dumbFormHandleFormSubmit} 
+                                formData={dumbFormFormData} 
+                                setFormData={dumbFormSetFormData} 
+                                btnType={dumbFormBtnType} 
+                                btnText={dumbFormBtnText}
                             />
+
 
 
                         </div>

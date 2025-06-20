@@ -139,6 +139,9 @@ export default function MovieAddForm ({ handleFormSubmit, formData, setFormData 
                         // todo: decidere se dare errore o utilizzare placeholder di default
                         required
 
+                        // * ATTENZIONE: MEGLIO IMAGE (MA NON FUNZIONA IN REACT?)
+                        // * SIMILMENTE PER PASSWORD RISPETTO A TEXT, AGGIUNGE VALIDAZIONE DEL TIPO DI FILE NEL BROWSER, POTENZIANDO IL TYPE FILE
+                        // type="image"
                         type="file"
                         id="image" 
                         className="form-control"

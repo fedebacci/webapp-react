@@ -14,7 +14,7 @@ import { useLoader } from "../../contexts/LoaderContext";
 
 // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB */
 // import MovieAddForm from "../../components/forms/MovieAddForm";
-import Form from "../../components/forms/Form";
+import Form from "../../components/ui/Form";
 
 
 

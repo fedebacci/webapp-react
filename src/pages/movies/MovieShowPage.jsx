@@ -16,7 +16,7 @@ import MovieReviewsList from "../../components/movies/MovieReviewsList";
 
 // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
 // import ReviewAddForm from "../../components/forms/ReviewAddForm";
-import Form from "../../components/forms/Form";
+import Form from "../../components/ui/Form";
 
 
 // - PASSAGGIO DA FORM SPECIFICI A FORM DUMB
